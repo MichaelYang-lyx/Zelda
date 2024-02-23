@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>/Users/yangyibo/Desktop/HKUST/materials/The_Legend_of_Zelda/CSE3902/sprint0/Content/sound/Taunt-Song.mp3</SourceFile>
+  <SourceTime>2024-02-23T12:18:04.6310537+08:00</SourceTime>
+  <DestFile>/Users/yangyibo/Desktop/HKUST/materials/The_Legend_of_Zelda/CSE3902/sprint0/Content/bin/DesktopGL/Content/sound/Taunt-Song.xnb</DestFile>
+  <DestTime>2024-02-23T12:57:11.2562233+08:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2022-07-24T19:13:12+08:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2022-07-24T19:13:12+08:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>/Users/yangyibo/Desktop/HKUST/materials/The_Legend_of_Zelda/CSE3902/sprint0/Content/bin/DesktopGL/Content/sound/Taunt-Song.ogg</string>
+  </BuildOutput>
+</PipelineBuildEvent>

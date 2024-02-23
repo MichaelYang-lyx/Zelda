@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>/Users/yangyibo/Desktop/HKUST/materials/The_Legend_of_Zelda/CSE3902/sprint0/Content/sound/Link_Final_Hurt.wav</SourceFile>
+  <SourceTime>2024-02-23T12:18:04.6273521+08:00</SourceTime>
+  <DestFile>/Users/yangyibo/Desktop/HKUST/materials/The_Legend_of_Zelda/CSE3902/sprint0/Content/bin/DesktopGL/Content/sound/Link_Final_Hurt.xnb</DestFile>
+  <DestTime>2024-02-23T12:57:09.7662735+08:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2022-07-24T19:13:12+08:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2022-07-24T19:13:12+08:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

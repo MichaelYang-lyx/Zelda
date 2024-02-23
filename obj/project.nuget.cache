@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "5d4b83S/B5veYW1aJMheyByP65E/JiGD71ziTw2pedFPzAMYXD7rX0t7y7glja0bdmxYi5fFmNyQ3UEil/8VRg==",
+  "success": true,
+  "projectFilePath": "/Users/yangyibo/Desktop/HKUST/materials/The_Legend_of_Zelda/CSE3902/sprint0/sprint0.csproj",
+  "expectedPackageFiles": [
+    "/Users/yangyibo/.nuget/packages/csvhelper/29.0.0/csvhelper.29.0.0.nupkg.sha512",
+    "/Users/yangyibo/.nuget/packages/monogame.content.builder.task/3.8.1.263/monogame.content.builder.task.3.8.1.263.nupkg.sha512",
+    "/Users/yangyibo/.nuget/packages/monogame.framework.desktopgl/3.8.1.303/monogame.framework.desktopgl.3.8.1.303.nupkg.sha512",
+    "/Users/yangyibo/.nuget/packages/nupengl.core/0.1.0.1/nupengl.core.0.1.0.1.nupkg.sha512",
+    "/Users/yangyibo/.nuget/packages/nupengl.core.redist/0.1.0.1/nupengl.core.redist.0.1.0.1.nupkg.sha512",
+    "/Users/yangyibo/.nuget/packages/microsoft.netcore.app.ref/6.0.27/microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
+    "/Users/yangyibo/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.27/microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512",
+    "/Users/yangyibo/.nuget/packages/microsoft.netcore.app.host.osx-arm64/6.0.27/microsoft.netcore.app.host.osx-arm64.6.0.27.nupkg.sha512"
+  ],
+  "logs": []
+}

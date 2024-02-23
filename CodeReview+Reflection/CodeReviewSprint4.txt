@@ -1,0 +1,129 @@
+
+In the plaintext file for a readability review, include the following information:
+Author of the code review
+Date of the code review
+Sprint number
+Name of the .cs file being reviewed
+Author of the .cs file being reviewed
+Number of minutes taken to complete the review
+Specific comments on what is readable and what is not
+
+
+In the plaintext file for a code quality review, include the following information:
+Author of the code review
+Date of the code review
+Sprint number
+Name of the .cs file being reviewed
+Author of the .cs file being reviewed
+Specific comments on code quality
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change
+
+
+
+==================================================================================================================================================
+Code Review By Michael Yang
+==================================================================================================================================================
+(Quality)
+Michael Yang
+12/7/2022
+sprint5
+ICollision/ICollision.cs
+Breece Pingle (part)
+10minutes
+
+The code linkToblocks written by Breece and link to bounds contain some logical problem when Link is hindered by block. For 
+example, when link face opposite the block but was pushed toward the block, then Link will penetrate the block. So when we add 
+more elements, those logic problems will make it hard. And I have changed it into a more reasonable version.
+----------------Before:
+                    switch (link.GetDirection())
+                    {
+                        case Link.Direction.Up:
+                            link.ChangePosition(new Rectangle(linkPos.X, bound.Bottom, linkPos.Width, linkPos.Height));
+                            break;
+                        case Link.Direction.Down:
+                            link.ChangePosition(new Rectangle(linkPos.X, bound.Top - linkPos.Height, linkPos.Width, linkPos.Height));
+                            break;
+                        case Link.Direction.Left:
+                            link.ChangePosition(new Rectangle(bound.Right, linkPos.Y, linkPos.Width, linkPos.Height));
+                            break;
+                        case Link.Direction.Right:
+                            link.ChangePosition(new Rectangle(bound.Left - linkPos.Width, linkPos.Y, linkPos.Width, linkPos.Height));
+                            break;
+                        default:
+                            break;
+                    }
+------------------Then:
+                    Rectangle intersectRegion = Rectangle.Intersect(bound, linkPos);
+                    if (intersectRegion.Width > intersectRegion.Height)
+                    {//up and down
+                        if (bound.Top < linkPos.Top)
+                        {
+                            //up
+                            link.ChangePosition(new Rectangle(linkPos.X, bound.Bottom, linkPos.Width, linkPos.Height));
+                        }
+                        else
+                        {
+                            //down
+                            link.ChangePosition(new Rectangle(linkPos.X, bound.Top - linkPos.Height, linkPos.Width, linkPos.Height));
+
+                        }
+                    }
+                    else
+                    {//left and right
+                        if (bound.Left < linkPos.Left)
+                        { //left
+                            link.ChangePosition(new Rectangle(bound.Right, linkPos.Y, linkPos.Width, linkPos.Height));
+                        }
+                        else
+                        {
+                            //right
+                            link.ChangePosition(new Rectangle(bound.Left - linkPos.Width, linkPos.Y, linkPos.Width, linkPos.Height));
+                        }
+
+                    }
+
+
+
+
+(Readibility)
+Michael Yang
+12/7/2022
+sprint5
+IMap/MapController
+Reo
+10minutes
+Some times I feel difficult to understand the code if you do not spend enough time although there are some annotations. 
+I think that many because the structure and name of the variables are not clear enough. And the magic numbers also 
+decrease readibility of code.
+------For example,
+    public void enableDoor(Rectangle locked)
+        {
+            int doorID = 0;
+            LoadBoundsPerRoom();
+            //within each room finds appropriate door and doorID
+            foreach (int[] door in currentRoomDoors)
+            {
+                if (door[1] == locked.X && door[2] == locked.Y)
+                {
+                    doorID = door[6];
+                }
+            }
+            //position 6 stores doorID for pair
+            foreach (int[] door in doors)
+            {
+                if (door[6] == doorID)
+                {
+                    int index = doors.FindIndex(delegate (int[] i) { return i == door; });
+                    //position 5, 0 == unlocked, 1 == locked, 2 == not bombed.
+                    doors[index][5] = 0;
+                }
+            }
+            setDoors();
+        }
+
+I think the best way to increase readibility is to add annotations around the reference code and different branches of if. We need
+not to know how it works but we need to know the result of the progress so that we can use it. And remove magic numbers will help, too.
+
+==================================================================================================================================================
+Code Review By ------------------
+==================================================================================================================================================

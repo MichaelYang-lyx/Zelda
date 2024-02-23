@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>/Users/yangyibo/Desktop/HKUST/materials/The_Legend_of_Zelda/CSE3902/sprint0/Content/File.spritefont</SourceFile>
+  <SourceTime>2024-02-23T12:18:04.5822186+08:00</SourceTime>
+  <DestFile>/Users/yangyibo/Desktop/HKUST/materials/The_Legend_of_Zelda/CSE3902/sprint0/Content/bin/DesktopGL/Content/File.xnb</DestFile>
+  <DestTime>2024-02-23T12:57:03.8481416+08:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2022-07-24T19:13:12+08:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2022-07-24T19:13:12+08:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

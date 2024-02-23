@@ -1,0 +1,152 @@
+
+In the plaintext file for a readability review, include the following information:
+Author of the code review
+Date of the code review
+Sprint number
+Name of the .cs file being reviewed
+Author of the .cs file being reviewed
+Number of minutes taken to complete the review
+Specific comments on what is readable and what is not
+
+
+In the plaintext file for a code quality review, include the following information:
+Author of the code review
+Date of the code review
+Sprint number
+Name of the .cs file being reviewed
+Author of the .cs file being reviewed
+Specific comments on code quality
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change
+
+
+==================================================================================================================================================
+Code Review By Michael Yang
+==================================================================================================================================================
+(Readability)
+Michael Yang
+11/14/2022
+sprint4
+ICollision/ICollision.cs
+Breece Pingle and Reo Ogundare(part)
+10minutes
+
+The code linkToblocks written by Breece and link to bounds contain same code about handling block of link. I think we can write a function 
+in Link class called LinkBlock().This can reduce the redundancy of code.
+LinkBlock contains the blow code:
+                    switch (link.GetDirection())
+                    {
+                        case Link.Direction.Up:
+                            link.ChangePosition(new Rectangle(linkPos.X, bound.Bottom, linkPos.Width, linkPos.Height));
+                            break;
+                        case Link.Direction.Down:
+                            link.ChangePosition(new Rectangle(linkPos.X, bound.Top - linkPos.Height, linkPos.Width, linkPos.Height));
+                            break;
+                        case Link.Direction.Left:
+                            link.ChangePosition(new Rectangle(bound.Right, linkPos.Y, linkPos.Width, linkPos.Height));
+                            break;
+                        case Link.Direction.Right:
+                            link.ChangePosition(new Rectangle(bound.Left - linkPos.Width, linkPos.Y, linkPos.Width, linkPos.Height));
+                            break;
+                        default:
+                            break;
+                    }
+
+
+
+
+(Quality)
+Michael Yang
+11/14/2022
+sprint4
+ICollision/ICollision.cs
+Breece Pingle(part)
+10minutes
+In linkToEnmies(Breece), I think we should change the code link.TakeDamage() when link is touched by enemy if link is not attacking.
+As this will make it hard to expand the code if different enemies can yield different effects when touching link, like take more 
+damage, decrease the speed of link and so on. So we can set a method called EnemyHitLink() in the IEnemy so to implement different 
+codes for different enemies. And linkToBlock should also be changed into this way, as not all blocks will hinder Link such as 
+ladder(take link to a different place) and fire(damages link instead of hinder link).
+
+
+==================================================================================================================================================
+Code Review By Breece Pingle
+==================================================================================================================================================
+(Readability)
+Breece Pingle
+12/7/2022
+sprint5
+ICollision/ICollision.cs
+Michael Yang and Reo Ogundare (part)
+10minutes
+
+I have seen the code:
+
+           _controllers.RegisterCommand(Keys.A, new Move(this));
+            _controllers.RegisterCommand(Keys.D, new Move(this));
+            _controllers.RegisterCommand(Keys.W, new Move(this));
+            _controllers.RegisterCommand(Keys.S, new Move(this));
+            // _controllers.RegisterCommand(Keys.T, new PreviousBlock(this));
+            // _controllers.RegisterCommand(Keys.Y, new NextBlock(this));
+            _controllers.RegisterCommand(Keys.Y, new SwitchLevel(this));
+            _controllers.RegisterCommand(Keys.Tab, new TestMode(this));
+
+            _controllers.RegisterCommand(Keys.U, new PreviousItem(this));
+            _controllers.RegisterCommand(Keys.I, new NextItem(this));
+            //_controllers.RegisterCommand(Keys.O, new PreviousEnemy(this));
+            //_controllers.RegisterCommand(Keys.P, new NextEnemy(this));
+            //_controllers.RegisterCommand(Keys.Z, new Attack(this));
+            _controllers.RegisterCommand(Keys.N, new Attack(this));
+            _controllers.RegisterCommand(Keys.D1, new UseFirstItem(this));
+            _controllers.RegisterCommand(Keys.D2, new UseSecondItem(this));
+            _controllers.RegisterCommand(Keys.D3, new UseThirdItem(this));
+            //_controllers.RegisterCommand(Keys.E, new TakeDamageOn(this));
+            _controllers.RegisterCommand(Keys.R, new Reset(this));
+            //_controllers.RegisterCommand(Keys.D9, new MuteSoundEffect(this));
+            //_controllers.RegisterCommand(Keys.D8, new MuteBackgroudMusic(this));
+            _controllers.RegisterCommand(Keys.G, new Pause(this));
+            _controllers.RegisterCommand(Keys.F, new Pause2(this));
+            _controllers.RegisterCommand(Keys.H, new Win(this));
+            _controllers.RegisterCommand(Keys.J, new Taunt(this));
+            _controllers.RegisterCommand(Keys.Q, new Quit(this));
+            _controllers.RegisterCommand(Keys.Escape, new Quit(this));
+
+In a couple of differenct places. I think, since this is our final sprint, we
+could easily organize all of the commented commands into a block at the end,
+with a "title" comment saying that they are "debugging" commands. This would
+provide much better readability on code comments that we would rather not
+delete.
+
+We still need to use the version that is NOT in the
+Game1 class itself, as this would be a very easy fix in making our code more
+readable.
+
+
+
+
+(Quality)
+Breece Pingle
+12/7/2022
+sprint5
+IEnemy/GoriyaRed.cs
+Michael Yang
+10minutes
+
+Code quality in the additional enemies added by Michael meets the same standard
+of quality as the other enemies Michael has implemented. Excellent, efficient,
+and easy to utilize in different classes by means of IEnemy.
+
+
+==================================================================================================================================================
+Code Review By Michael Yang
+==================================================================================================================================================
+
+(Quality)
+Reo Ogundare
+12/07/2022
+sprint5
+IGameState.cs
+
+GameState by Breece Pingle is excellently developed, each state is paired with gameState and IGamestate and allows ease of use 
+and an ease in changing states. This works through the use of single click Commands in ICommand. This 
+implimentation although can be improved with further utilization and with automatic changes to win 
+state from play state when the player achieves a sufficient condition(obtaining the triforce)
